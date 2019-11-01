@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
+use App\User;
 class ForgetPassword extends Mailable
 {
     use Queueable, SerializesModels;
@@ -18,7 +18,7 @@ class ForgetPassword extends Mailable
      */
 
     public $user;
-    public function __construct()
+    public function __construct(User $user)
     {
         //
             $this->user = $user;
@@ -31,7 +31,6 @@ class ForgetPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
         return $this->view('mails.forget_password')->from('no-reply@deep-reach.com','Deep Reach')->subject('Reset Password Link')->with([
                         'link' => $this->user->verifyToken,
                     ]);

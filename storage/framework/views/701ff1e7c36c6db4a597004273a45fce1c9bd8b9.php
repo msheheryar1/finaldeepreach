@@ -5,28 +5,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-<meta name="_token" content="{{csrf_token()}}" />
+<meta name="_token" content="<?php echo e(csrf_token()); ?>" />
 <!--===============================================================================================-->	<!-- 
-	<link rel="icon" type="image/png" href="{{asset('login/images/icons/favicon.ico')}}"/> -->
+	<link rel="icon" type="image/png" href="<?php echo e(asset('login/images/icons/favicon.ico')); ?>"/> -->
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/bootstrap/css/bootstrap.min.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/animate/animate.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/animate/animate.css')); ?>">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/css-hamburgers/hamburgers.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/css-hamburgers/hamburgers.min.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/animsition/css/animsition.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/animsition/css/animsition.min.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/select2/select2.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/select2/select2.min.css')); ?>">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/vendor/daterangepicker/daterangepicker.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/vendor/daterangepicker/daterangepicker.css')); ?>">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/css/util.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('asset/login/css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/css/util.css')); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('asset/login/css/main.css')); ?>">
 <!--===============================================================================================-->
 <style>
  .onoffswitch {
@@ -161,8 +161,9 @@ else{
     </label>
 </div>			
 
-<form class="login_form" action="{{route('do_login')}}" method="post">
-					{{csrf_field()}}
+<form class="login_form" action="<?php echo e(route('do_login')); ?>" method="post">
+					<?php echo e(csrf_field()); ?>
+
 					
 					
 
@@ -172,10 +173,10 @@ else{
 					</span>
 					
 					
-					@if(!$errors->message->isEmpty())
+					<?php if(!$errors->message->isEmpty()): ?>
 						<p class="alert alert-danger">Invalid Credentails</p>
 						
-					@endif
+					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email">
@@ -219,11 +220,11 @@ else{
 					</div>
 
 					<div class="login100-form-social flex-c-m">
-						<a href="{{route('facebook_signup')}}" class="login100-form-social-item flex-c-m bg1 m-r-5">
+						<a href="<?php echo e(route('facebook_signup')); ?>" class="login100-form-social-item flex-c-m bg1 m-r-5">
 							<i class="fa fa-facebook-f" aria-hidden="true"></i>
 						</a>
 
-						<a href="{{route('google_signup')}}" class="login100-form-social-item flex-c-m bg2 m-r-5">
+						<a href="<?php echo e(route('google_signup')); ?>" class="login100-form-social-item flex-c-m bg2 m-r-5">
 							<i class="fa fa-google-plus" aria-hidden="true"></i>
 						</a>
 					</div>
@@ -232,20 +233,21 @@ else{
 				
 				
 				
-				<form class="signup_form" action="{{route('do_signup')}}" method="post">
+				<form class="signup_form" action="<?php echo e(route('do_signup')); ?>" method="post">
 
-					{{csrf_field()}}
+					<?php echo e(csrf_field()); ?>
+
 					<span class="login100-form-title p-b-43">
 						Sign Up
 					</span>
 
-					@if($errors->any())
-						@forelse($errors->all() as $error)
-						<p class="alert alert-danger">{{$error}}</p>
-						@empty
+					<?php if($errors->any()): ?>
+						<?php $__empty_1 = true; $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+						<p class="alert alert-danger"><?php echo e($error); ?></p>
+						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
 
-						@endforelse
-					@endif
+						<?php endif; ?>
+					<?php endif; ?>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid name is required: John Doe">
 						<input class="input100" autocomplete="name" type="text" name="name">
@@ -280,11 +282,11 @@ else{
 					</div>
 
 					<div class="login100-form-social flex-c-m">
-						<a href="{{route('facebook_signup')}}" class="login100-form-social-item flex-c-m bg1 m-r-5">
+						<a href="<?php echo e(route('facebook_signup')); ?>" class="login100-form-social-item flex-c-m bg1 m-r-5">
 							<i class="fa fa-facebook-f" aria-hidden="true"></i>
 						</a>
 
-						<a href="{{route('google_signup')}}" class="login100-form-social-item flex-c-m bg2 m-r-5">
+						<a href="<?php echo e(route('google_signup')); ?>" class="login100-form-social-item flex-c-m bg2 m-r-5">
 							<i class="fa fa-google-plus" aria-hidden="true"></i>
 						</a>
 					</div>
@@ -334,19 +336,19 @@ else{
 	
 	
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/jquery/jquery-3.2.1.min.js')); ?>"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/animsition/js/animsition.min.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/animsition/js/animsition.min.js')); ?>"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/bootstrap/js/popper.js')}}"></script>
-	<script src="{{asset('asset/login/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/bootstrap/js/popper.js')); ?>"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/select2/select2.min.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/select2/select2.min.js')); ?>"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/daterangepicker/moment.min.js')}}"></script>
-	<script src="{{asset('asset/login/vendor/daterangepicker/daterangepicker.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/daterangepicker/moment.min.js')); ?>"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/daterangepicker/daterangepicker.js')); ?>"></script>
 <!--===============================================================================================-->
-	<script src="{{asset('asset/login/vendor/countdowntime/countdowntime.js')}}"></script>
+	<script src="<?php echo e(asset('asset/login/vendor/countdowntime/countdowntime.js')); ?>"></script>
 <!--===============================================================================================-->
 
 <script>
@@ -384,7 +386,7 @@ else{
                   }
               });
                $.ajax({
-                  url: "{{route('forget_password')}}",
+                  url: "<?php echo e(route('forget_password')); ?>",
                   method: 'post',
                   data: {
                      email: $(".forget_email").val(),
@@ -410,4 +412,4 @@ else{
 </script>
 
 </body>
-</html>
+</html><?php /**PATH E:\laravel_september\finaldeepreach\resources\views/frontend/login.blade.php ENDPATH**/ ?>

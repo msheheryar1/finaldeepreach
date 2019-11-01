@@ -4,6 +4,8 @@
 	<title>Signup - DeepReach</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<meta name="_token" content="{{csrf_token()}}" />
 <!--===============================================================================================-->	<!-- 
 	<link rel="icon" type="image/png" href="{{asset('login/images/icons/favicon.ico')}}"/> -->
 <!--===============================================================================================-->
@@ -262,8 +264,8 @@ else{
       </div>
       <div class="modal-body">
         <form class="p-3">
-        	<p class="alert alert-success forget_success">Resent Link Sent To Your Email</p>
-        	<p class="alert alert-danger forget_danger">Your Email was not found in our records.</p>
+        	<p class="alert alert-success forget_success" style="display: none;">Resent Link Sent To Your Email</p>
+        	<p class="alert alert-danger forget_danger" style="display: none;">Your Email was not found in our records.</p>
         	<div class="wrap-input100 validate-input" style="height: 50px;">
 						<input class="input100 forget_email" autocomplete="name"  placeholder="Email" type="text" name="name">
 						
