@@ -41,11 +41,11 @@
                 <div class="h5 mt-4 text-primary">
                   <i class="ni business_briefcase-24 mr-2 text-info" style="color:blue;"></i>
                   @if($mycard->custom_check==0)
-                  {{'http://www.portfume.com/c/'.$mycard->site.'/'.$mycard->slug}}
-                  <input type="text" style="display:none;" id="copy_link" value="{{'http://www.portfume.com/c/'.$mycard->site.'/'.$mycard->slug}}">
+                  {{'https://cards.deep-reach.com/c/'.$mycard->site.'/'.$mycard->slug}}
+                  <input type="text" style="display:none;" id="copy_link" value="{{'https://cards.deep-reach.com/c/'.$mycard->site.'/'.$mycard->slug}}">
                   </div>
                 
-                <button id="copy_btn" class="btn mybtn-primary" onclick="myFunction('{{'http://www.portfume.com/c/'.$mycard->site.'/'.$mycard->slug}}')">Click To Copy</button>
+                <button id="copy_btn" class="btn mybtn-primary" onclick="myFunction('{{'https://cards.deep-reach.com/c/'.$mycard->site.'/'.$mycard->slug}}')">Click To Copy</button>
                   @else
                   {{$mycard->site.'/'.$mycard->slug}}
                   <input type="text" style="display:none;" id="copy_link" value="{{$mycard->site.'/'.$mycard->slug}}">
