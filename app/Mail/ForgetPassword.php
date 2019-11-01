@@ -32,7 +32,7 @@ class ForgetPassword extends Mailable
     public function build()
     {
         return $this->view('view.name');
-        return $this->view('mails.forget_password')->from('info@portfume.com','Incruiter')->subject('Verify Your Email')->with([
+        return $this->view('mails.forget_password')->from('no-reply@deep-reach.com','Deep Reach')->subject('Reset Password Link')->with([
                         'link' => $this->user->verifyToken,
                     ]);
     }
