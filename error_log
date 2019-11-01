@@ -1,0 +1,9 @@
+[22-Jul-2019 01:22:41 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\MainController::facebook_callback() in /home/wnaezmgawim0/app/Http/Controllers/MainController.php on line 332
+[22-Jul-2019 09:26:09 UTC] PHP Fatal error:  Cannot declare class App\Http\Middleware\Authenticate, because the name is already in use in /home/wnaezmgawim0/app/Http/Middleware/IsAdmin.php on line 23
+[22-Jul-2019 09:26:51 UTC] PHP Fatal error:  Class 'Illuminate\Auth\Middleware\IsAdmin' not found in /home/wnaezmgawim0/app/Http/Middleware/IsAdmin.php on line 8
+[28-Jul-2019 16:49:02 UTC] PHP Warning:  require_once(/home/wnaezmgawim0/public_html/public_html/index.php): failed to open stream: No such file or directory in /home/wnaezmgawim0/public_html/index.php on line 21
+[28-Jul-2019 16:49:02 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/wnaezmgawim0/public_html/public_html/index.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/wnaezmgawim0/public_html/index.php on line 21
+[28-Jul-2019 16:49:05 UTC] PHP Warning:  require_once(/home/wnaezmgawim0/public_html/public_html/index.php): failed to open stream: No such file or directory in /home/wnaezmgawim0/public_html/index.php on line 21
+[28-Jul-2019 16:49:05 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/wnaezmgawim0/public_html/public_html/index.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/wnaezmgawim0/public_html/index.php on line 21
+[28-Jul-2019 16:49:07 UTC] PHP Warning:  require_once(/home/wnaezmgawim0/public_html/public_html/index.php): failed to open stream: No such file or directory in /home/wnaezmgawim0/public_html/index.php on line 21
+[28-Jul-2019 16:49:07 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/wnaezmgawim0/public_html/public_html/index.php' (include_path='.:/opt/alt/php72/usr/share/pear') in /home/wnaezmgawim0/public_html/index.php on line 21
