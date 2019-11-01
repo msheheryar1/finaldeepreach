@@ -326,7 +326,7 @@ function final_total(){
 }
 
 
-	 var stripe = Stripe('pk_test_CYyPRs1yY09z9iQ2TKccpuj000fpVCxDGn');
+	 var stripe = Stripe('pk_test_5Qai9EpFB4MQCpXfEkAfbbFf');
 
         // Create an instance of Elements
         var elements = stripe.elements();
