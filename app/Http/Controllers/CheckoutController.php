@@ -62,7 +62,7 @@ $mycustomer->save();
 public function subscription_created(Request $request){
     
     $mycustomer = Customer::where('customer_id',$request->data['object']['customer'])->first();
-    $mycustomer->due_date = date('Y-m-d H:i:s',date_create($request->data['object']['current_period_end']));
+    $mycustomer->due_date = date('Y-m-d H:i:s',$request->data['object']['current_period_end']);
     $mycustomer->s_id = $request->data['object']['id'];
     if($mycustomer->plan=='Pro'){
         $mycustomer->card_limit=500;
