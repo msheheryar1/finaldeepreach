@@ -213,7 +213,6 @@
                     <div class="col col-4 text-right total_price" style="font-weight: 600;">$8.99</div>
                 </div> <!---->
             </div>
-        </div>
 
 
                         <br>
