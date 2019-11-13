@@ -1,8 +1,6 @@
-@extends('panel.layout.master')
-
-@section('dashboard_active','active')
-@section('title',$mycard->title.' - DeepReach')
-@section('content')
+<?php $__env->startSection('dashboard_active','active'); ?>
+<?php $__env->startSection('title',$mycard->title.' - DeepReach'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid mt--7">
       <div class="row">
           
@@ -22,30 +20,34 @@
               <div class="row">
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                      <img src="{{asset('media/upload_image')}}/{{$mycard->fb_image}}" width="100%">
+                      <img src="<?php echo e(asset('media/upload_image')); ?>/<?php echo e($mycard->fb_image); ?>" width="100%">
                     
                   </div>
                 </div>
               </div>
               <div class="text-center">
                 <h3>
-                  {{$mycard->title}}<span class="font-weight-light"></span>
+                  <?php echo e($mycard->title); ?><span class="font-weight-light"></span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>{{$mycard->description}}
+                  <i class="ni location_pin mr-2"></i><?php echo e($mycard->description); ?>
+
                 </div>
                 <div class="h5 mt-4 text-primary">
-                  <i class="ni business_briefcase-24 mr-2 text-blue" style="color:blue;"></i>{{$mycard->destination}}
+                  <i class="ni business_briefcase-24 mr-2 text-blue" style="color:blue;"></i><?php echo e($mycard->destination); ?>
+
                 </div>
                 <div class="h5 mt-4 text-primary">
                   <i class="ni business_briefcase-24 mr-2 text-info" style="color:blue;"></i>
-                  @if($mycard->custom_check==0)
-                  {{'https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug}}
-                  <input type="text" style="display:none;" id="copy_link" value="{{'https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug}}">
-                  @else
-                  {{$mycard->site.'/'.$mycard->slug}}
-                  <input type="text" style="display:none;" id="copy_link" value="{{$mycard->site.'/'.$mycard->slug}}">
-                  @endif
+                  <?php if($mycard->custom_check==0): ?>
+                  <?php echo e('https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug); ?>
+
+                  <input type="text" style="display:none;" id="copy_link" value="<?php echo e('https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug); ?>">
+                  <?php else: ?>
+                  <?php echo e($mycard->site.'/'.$mycard->slug); ?>
+
+                  <input type="text" style="display:none;" id="copy_link" value="<?php echo e($mycard->site.'/'.$mycard->slug); ?>">
+                  <?php endif; ?>
 
                 </div>
                 <button id="copy_btn" class="btn mybtn-primary" onclick="myFunction()">Click To Copy</button>
@@ -54,20 +56,20 @@
                 
                 <hr class="my-4">
                 <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->fb_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/fb.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->fb_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/fb.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->tw_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/twi.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->tw_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/twi.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->lin_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/lin.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->lin_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/lin.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->pin_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/pin.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->pin_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/pin.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->other_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/other.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->other_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/other.png')); ?>" class="rounded-circle">
                         </a>
                         
                         
@@ -156,7 +158,7 @@ var OrdersChart = (function() {
 				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 				datasets: [{
 					label: 'Clicks',
-					data: [{{$m1_clicks[0]->month1}}, {{$m2_clicks[0]->month2}}, {{$m3_clicks[0]->month3}}, {{$m4_clicks[0]->month4}}, {{$m5_clicks[0]->month5}}, {{$m6_clicks[0]->month6}}]
+					data: [<?php echo e($m1_clicks[0]->month1); ?>, <?php echo e($m2_clicks[0]->month2); ?>, <?php echo e($m3_clicks[0]->month3); ?>, <?php echo e($m4_clicks[0]->month4); ?>, <?php echo e($m5_clicks[0]->month5); ?>, <?php echo e($m6_clicks[0]->month6); ?>]
 				}]
 			}
 		});
@@ -196,4 +198,6 @@ var OrdersChart = (function() {
   
 }
     </script>
-    @endsection
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('panel.layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\laravel_september\finaldeepreach\resources\views/panel/card.blade.php ENDPATH**/ ?>

@@ -7,32 +7,32 @@
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   
-<meta name="_token" content="{{csrf_token()}}" />
-  <title>@yield('title','Dashboard - DeepReach')</title>
+<meta name="_token" content="<?php echo e(csrf_token()); ?>" />
+  <title><?php echo $__env->yieldContent('title','Dashboard - DeepReach'); ?></title>
   <!-- Favicon -->
-  <link href="{{asset('media/icon.png')}}" rel="icon" type="image/png">
+  <link href="<?php echo e(asset('media/icon.png')); ?>" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700')}}" rel="stylesheet">
   <!-- Icons -->
-  <link href="{{asset('panel/assets/vendor/nucleo/css/nucleo.css')}}" rel="stylesheet">
+  <link href="<?php echo e(asset('panel/assets/vendor/nucleo/css/nucleo.css')); ?>" rel="stylesheet">
   
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!-- Argon CSS -->
-  <link type="text/css" href="{{asset('panel/assets/css/argon.css?v=1.0.0')}}" rel="stylesheet">
+  <link type="text/css" href="<?php echo e(asset('panel/assets/css/argon.css?v=1.0.0')); ?>" rel="stylesheet">
   
   
-    <link type="text/css" href="{{asset('panel/assets/datatable/buttons.bootstrap4.min.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{asset('panel/assets/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{asset('panel/assets/datatable/select.bootstrap4.min.css')}}" rel="stylesheet">
+    <link type="text/css" href="<?php echo e(asset('panel/assets/datatable/buttons.bootstrap4.min.css')); ?>" rel="stylesheet">
+    <link type="text/css" href="<?php echo e(asset('panel/assets/datatable/dataTables.bootstrap4.min.css')); ?>" rel="stylesheet">
+    <link type="text/css" href="<?php echo e(asset('panel/assets/datatable/select.bootstrap4.min.css')); ?>" rel="stylesheet">
   
   
-   <script src="{{asset('panel/assets/vendor/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('panel/assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
-  <script src="{{asset('panel/assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
+   <script src="<?php echo e(asset('panel/assets/vendor/jquery/dist/jquery.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('panel/assets/vendor/chart.js/dist/Chart.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('panel/assets/vendor/chart.js/dist/Chart.extension.js')); ?>"></script>
   
-  <script src="{{asset('panel/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="<?php echo e(asset('panel/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')); ?>"></script>
   <!-- Argon JS -->
-  <script src="{{asset('panel/assets/js/argon.js?v=1.0.0')}}"></script>
+  <script src="<?php echo e(asset('panel/assets/js/argon.js?v=1.0.0')); ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   </head>
 
@@ -45,8 +45,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="{{route('home')}}">
-        <img src="{{asset('media/logo2.png')}}"  class="navbar-brand-img" alt="...">
+      <a class="navbar-brand pt-0" href="<?php echo e(route('home')); ?>">
+        <img src="<?php echo e(asset('media/logo2.png')); ?>"  class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -55,11 +55,11 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                  @if(Auth::user()->img!='')
-                  <img alt="Image placeholder" src="{{asset('media/user_image')}}/{{Auth::user()->img}}">
-                  @else
-                  <img alt="Image placeholder" src="{{asset('media/person.png')}}">
-                  @endif
+                  <?php if(Auth::user()->img!=''): ?>
+                  <img alt="Image placeholder" src="<?php echo e(asset('media/user_image')); ?>/<?php echo e(Auth::user()->img); ?>">
+                  <?php else: ?>
+                  <img alt="Image placeholder" src="<?php echo e(asset('media/person.png')); ?>">
+                  <?php endif; ?>
                 
               </span>
             </div>
@@ -68,7 +68,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="{{route('user_profile')}}" class="dropdown-item">
+            <a href="<?php echo e(route('user_profile')); ?>" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
@@ -82,8 +82,9 @@
         </li>
       </ul>
       
-            <form id="logout" action="{{route('logout')}}" method="post">
-                        {{csrf_field()}}
+            <form id="logout" action="<?php echo e(route('logout')); ?>" method="post">
+                        <?php echo e(csrf_field()); ?>
+
                     </form>
                     
       <!-- Collapse -->
@@ -93,7 +94,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="./index.html">
-                <img src="{{asset('panel/assets/img/brand/blue.png')}}">
+                <img src="<?php echo e(asset('panel/assets/img/brand/blue.png')); ?>">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -109,24 +110,24 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link @yield('dashboard_active')" href="{{route('dashboard')}}">
+            <a class="nav-link <?php echo $__env->yieldContent('dashboard_active'); ?>" href="<?php echo e(route('dashboard')); ?>">
               <i class="ni ni-tv-2 text-blue"></i> Dashboard
             </a>
           </li>
-          @if($customer->plan!='Basic')
+          <?php if($customer->plan!='Basic'): ?>
           <li class="nav-item">
-            <a class="nav-link @yield('domain_active')" href="{{route('custom-domain')}}">
+            <a class="nav-link <?php echo $__env->yieldContent('domain_active'); ?>" href="<?php echo e(route('custom-domain')); ?>">
               <i class="fas fa-globe-americas text-blue"></i> Domains
             </a>
           </li>
-          @endif
+          <?php endif; ?>
           <li class="nav-item">
-            <a class="nav-link @yield('package_active')" href="{{route('package-details')}}">
+            <a class="nav-link <?php echo $__env->yieldContent('package_active'); ?>" href="<?php echo e(route('package-details')); ?>">
               <i class="fas fa-file-invoice-dollar text-blue"></i> Package & Billing Details
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link @yield('profile_active')" href="{{route('user_profile')}}">
+            <a class="nav-link <?php echo $__env->yieldContent('profile_active'); ?>" href="<?php echo e(route('user_profile')); ?>">
               <i class="ni ni-single-02 text-blue"></i> Profile
             </a>
           </li>
@@ -152,15 +153,15 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                    @if(Auth::user()->img!='')
-                  <img alt="Image placeholder" src="{{asset('media/user_image')}}/{{Auth::user()->img}}">
-                  @else
-                  <img alt="Image placeholder" src="{{asset('media/person.png')}}">
-                  @endif
+                    <?php if(Auth::user()->img!=''): ?>
+                  <img alt="Image placeholder" src="<?php echo e(asset('media/user_image')); ?>/<?php echo e(Auth::user()->img); ?>">
+                  <?php else: ?>
+                  <img alt="Image placeholder" src="<?php echo e(asset('media/person.png')); ?>">
+                  <?php endif; ?>
                   
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->name}}</span>
+                  <span class="mb-0 text-sm  font-weight-bold"><?php echo e(Auth::user()->name); ?></span>
                 </div>
               </div>
             </a>
@@ -168,7 +169,7 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-              <a href="{{route('user_profile')}}" class="dropdown-item">
+              <a href="<?php echo e(route('user_profile')); ?>" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
@@ -195,7 +196,7 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Cards</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$cards->count()}}</span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo e($cards->count()); ?></span>
                     </div>
                 
                     <div class="col-auto">
@@ -221,7 +222,7 @@
                       <?php
                         $total_clicks = ($clicks[0]->total1)+($clicks[0]->total2)+($clicks[0]->total3)+($clicks[0]->total4)+($clicks[0]->total5);
                       ?>
-                      <span class="h2 font-weight-bold mb-0">{{$total_clicks}}</span>
+                      <span class="h2 font-weight-bold mb-0"><?php echo e($total_clicks); ?></span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -231,7 +232,7 @@
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
                     <span class="text-warning mr-2"><i class="fas fa-arrow-up"></i> Since</span>
-                    <span class="text-nowrap"> {{date_format(date_create(Auth::user()->created_at),'jS M, Y')}}</span>
+                    <span class="text-nowrap"> <?php echo e(date_format(date_create(Auth::user()->created_at),'jS M, Y')); ?></span>
                   </p>
                 </div>
               </div>
@@ -259,7 +260,7 @@
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
                     <span class="text-warning mr-2"><i class="fas fa-arrow-up"></i> Since</span>
-                    <span class="text-nowrap">{{date_format(date_create(Auth::user()->created_at),'jS M, Y')}}</span>
+                    <span class="text-nowrap"><?php echo e(date_format(date_create(Auth::user()->created_at),'jS M, Y')); ?></span>
                   </p>
                 </div>
               </div>
@@ -271,11 +272,12 @@
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Cards Remaining</h5>
                       <span class="h2 font-weight-bold mb-0">
-                          @if($customer->plan=='Elite')
+                          <?php if($customer->plan=='Elite'): ?>
                           UNLIMITED
-                          @else
-                          {{$customer->card_remaining}}
-                          @endif
+                          <?php else: ?>
+                          <?php echo e($customer->card_remaining); ?>
+
+                          <?php endif; ?>
                           </span>
                     </div>
                     <div class="col-auto">
@@ -296,26 +298,26 @@
       </div>
     </div>
     <!-- Page content -->
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
       <!-- Footer -->
       <footer class="footer">
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-6">
             <div class="copyright text-center text-xl-left text-muted">
-              &copy; 2019 <a href="{{route('home')}}" class="font-weight-bold ml-1" target="_blank">Deep Reach</a>
+              &copy; 2019 <a href="<?php echo e(route('home')); ?>" class="font-weight-bold ml-1" target="_blank">Deep Reach</a>
             </div>
           </div>
           <div class="col-xl-6">
             <ul class="nav nav-footer justify-content-center justify-content-xl-end">
               
               <li class="nav-item">
-                <a href="{{route('contact')}}" class="nav-link" target="_blank">Contact Us</a>
+                <a href="<?php echo e(route('contact')); ?>" class="nav-link" target="_blank">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a href="{{route('privacy')}}" class="nav-link" target="_blank">Privacy Policy</a>
+                <a href="<?php echo e(route('privacy')); ?>" class="nav-link" target="_blank">Privacy Policy</a>
               </li>
               <li class="nav-item">
-                <a href="{{route('terms')}}" class="nav-link" target="_blank">Terms</a>
+                <a href="<?php echo e(route('terms')); ?>" class="nav-link" target="_blank">Terms</a>
               </li>
             </ul>
           </div>
@@ -326,14 +328,14 @@
   <!-- Argon Scripts -->
   <!-- Core -->
  
-  <script src="{{asset('panel/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('panel/assets/js/argon2.js?v=1.0.0')}}"></script>
-     <script src="{{asset('panel/assets/datatable/dataTables.select.min.js')}}"></script>
-     <script src="{{asset('panel/assets/datatable/jquery.dataTables.min.js')}}"></script>
-     <script src="{{asset('panel/assets/datatable/dataTables.bootstrap4.min.js')}}"></script>
-     <script src="{{asset('panel/assets/datatable/dataTables.buttons.min.js')}}"></script>
-      <script src="{{asset('panel/assets/js/argon3.js?v=1.0.0')}}"></script>
+  <script src="<?php echo e(asset('panel/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('panel/assets/js/argon2.js?v=1.0.0')); ?>"></script>
+     <script src="<?php echo e(asset('panel/assets/datatable/dataTables.select.min.js')); ?>"></script>
+     <script src="<?php echo e(asset('panel/assets/datatable/jquery.dataTables.min.js')); ?>"></script>
+     <script src="<?php echo e(asset('panel/assets/datatable/dataTables.bootstrap4.min.js')); ?>"></script>
+     <script src="<?php echo e(asset('panel/assets/datatable/dataTables.buttons.min.js')); ?>"></script>
+      <script src="<?php echo e(asset('panel/assets/js/argon3.js?v=1.0.0')); ?>"></script>
   
 </body>
 
-</html>
+</html><?php /**PATH E:\laravel_september\finaldeepreach\resources\views/panel/layout/master.blade.php ENDPATH**/ ?>

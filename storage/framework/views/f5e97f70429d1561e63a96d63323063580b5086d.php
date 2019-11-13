@@ -1,7 +1,5 @@
-@extends('panel.layout.master')
-
-@section('dashboard_active','active')
-@section('content')
+<?php $__env->startSection('dashboard_active','active'); ?>
+<?php $__env->startSection('content'); ?>
 
 <div class="container-fluid mt--7">
       <div class="row">
@@ -26,36 +24,38 @@
                     <?php $count=0;
                     ?>
                     
-                    @forelse($cards as $mycard)
+                    <?php $__empty_1 = true; $__currentLoopData = $cards; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mycard): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <?php $count++; ?>
                     
-                    <tr class="row{{$mycard->id}}">
+                    <tr class="row<?php echo e($mycard->id); ?>">
                       <td>
-                          {{$count}}
+                          <?php echo e($count); ?>
+
                       </td>
                     <td>
-                        <img alt="Image placeholder" src="{{asset('media/upload_image')}}/{{$mycard->fb_image}}" width="150px">
+                        <img alt="Image placeholder" src="<?php echo e(asset('media/upload_image')); ?>/<?php echo e($mycard->fb_image); ?>" width="150px">
                     </td>
                     <td>
-                      {{$mycard->title}}
+                      <?php echo e($mycard->title); ?>
+
                     </td>
-                    <td><span class="data_link_copy text-primary font-weight-bold" style="cursor: pointer;" data-toggle="tooltip" data-original-title="Click To Copy">{{'https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug}}</span></td>
+                    <td><span class="data_link_copy text-primary font-weight-bold" style="cursor: pointer;" data-toggle="tooltip" data-original-title="Click To Copy"><?php echo e('https://'.$_SERVER['HTTP_HOST'].'/c/'.$mycard->site.'/'.$mycard->slug); ?></span></td>
                     <td>
                       <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->fb_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/fb.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->fb_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/fb.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->tw_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/twi.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->tw_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/twi.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->lin_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/lin.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->lin_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/lin.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->pin_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/pin.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->pin_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/pin.png')); ?>" class="rounded-circle">
                         </a>
-                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="{{$mycard->other_clicks}} Clicks">
-                          <img alt="Image placeholder" src="{{asset('media/other.png')}}" class="rounded-circle">
+                        <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="<?php echo e($mycard->other_clicks); ?> Clicks">
+                          <img alt="Image placeholder" src="<?php echo e(asset('media/other.png')); ?>" class="rounded-circle">
                         </a>
                         
                       </div>
@@ -66,17 +66,17 @@
                           <i class="fas fa-ellipsis-v"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow" >
-                          <a class="dropdown-item" href="{{route('user_card',$mycard->id)}}">View Full</a>
-                          <a class="dropdown-item text-danger del_card" data-del='{{$mycard->id}}' >Delete</a>
+                          <a class="dropdown-item" href="<?php echo e(route('user_card',$mycard->id)); ?>">View Full</a>
+                          <a class="dropdown-item text-danger del_card" data-del='<?php echo e($mycard->id); ?>' >Delete</a>
                          
                         </div>
                       </div>
                     </td>
                   </tr>
                  
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     
-                    @endforelse
+                    <?php endif; ?>
                   
                 </tbody>
               </table>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col">
                   <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[{{$m1_clicks[0]->month1}},{{$m2_clicks[0]->month2}}, {{$m3_clicks[0]->month3}}, {{$m4_clicks[0]->month4}}, {{$m5_clicks[0]->month5}}, {{$m6_clicks[0]->month6}}, {{$m7_clicks[0]->month7}}, {{$m8_clicks[0]->month8}}]}]}}" data-prefix="" data-suffix=" clicks">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[<?php echo e($m1_clicks[0]->month1); ?>,<?php echo e($m2_clicks[0]->month2); ?>, <?php echo e($m3_clicks[0]->month3); ?>, <?php echo e($m4_clicks[0]->month4); ?>, <?php echo e($m5_clicks[0]->month5); ?>, <?php echo e($m6_clicks[0]->month6); ?>, <?php echo e($m7_clicks[0]->month7); ?>, <?php echo e($m8_clicks[0]->month8); ?>]}]}}" data-prefix="" data-suffix=" clicks">
                       <a href="#" style="display:none;" class="nav-link month_btn py-2 px-3 active" data-toggle="tab">
                         <span class="d-none d-md-block">Month</span>
                         <span class="d-md-none">M</span>
@@ -166,14 +166,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @forelse( $country_clicks as $myclicks)
+                    <?php $__empty_1 = true; $__currentLoopData = $country_clicks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $myclicks): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                   <tr>
                       
                         <th scope="row">
-                      {{$myclicks->country}}
+                      <?php echo e($myclicks->country); ?>
+
                     </th>
                     <td>
-                      {{$myclicks->clicks}}
+                      <?php echo e($myclicks->clicks); ?>
+
                     </td>
                      
                     
@@ -181,8 +183,8 @@
                      
                     
                   </tr>
-                    @empty
-                 @endforelse
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                 <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -212,13 +214,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                      @forelse( $social_clicks as $myclicks)
+                      <?php $__empty_1 = true; $__currentLoopData = $social_clicks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $myclicks): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                   <tr>
                     <th scope="row">
-                      {{$myclicks->social}}
+                      <?php echo e($myclicks->social); ?>
+
                     </th>
                     <td>
-                      {{$myclicks->clicks}}
+                      <?php echo e($myclicks->clicks); ?>
+
                     </td>
                     <td>
                         <?php
@@ -226,18 +230,18 @@
                       ?>
                         
                       <div class="d-flex align-items-center">
-                        <span class="mr-2">{{number_format($myclicks->clicks/$total_clicks *100,2)}}%</span>
+                        <span class="mr-2"><?php echo e(number_format($myclicks->clicks/$total_clicks *100,2)); ?>%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="{{$myclicks->clicks/$total_clicks *100}}" aria-valuemin="0" aria-valuemax="100" style="width:{{$myclicks->clicks/$total_clicks *100}}%;"></div>
+                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="<?php echo e($myclicks->clicks/$total_clicks *100); ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($myclicks->clicks/$total_clicks *100); ?>%;"></div>
                           </div>
                         </div>
                       </div>
                     </td>
                   </tr>
-                  @empty
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                   
-                  @endforelse
+                  <?php endif; ?>
                   
                 </tbody>
               </table>
@@ -260,7 +264,7 @@ $(document).on('click','.del_card',function(e){
                   }
               });
                $.ajax({
-                  url: "{{route('delete-card')}}",
+                  url: "<?php echo e(route('delete-card')); ?>",
                   method: 'post',
                   data: {
                      id: id
@@ -337,7 +341,7 @@ var SalesChart = (function() {
 				labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 				datasets: [{
 					label: 'Performance',
-					data: [{{$m1_clicks[0]->month1}},{{$m2_clicks[0]->month2}}, {{$m3_clicks[0]->month3}}, {{$m4_clicks[0]->month4}}, {{$m5_clicks[0]->month5}}, {{$m6_clicks[0]->month6}}, {{$m7_clicks[0]->month7}}, {{$m8_clicks[0]->month8}}]
+					data: [<?php echo e($m1_clicks[0]->month1); ?>,<?php echo e($m2_clicks[0]->month2); ?>, <?php echo e($m3_clicks[0]->month3); ?>, <?php echo e($m4_clicks[0]->month4); ?>, <?php echo e($m5_clicks[0]->month5); ?>, <?php echo e($m6_clicks[0]->month6); ?>, <?php echo e($m7_clicks[0]->month7); ?>, <?php echo e($m8_clicks[0]->month8); ?>]
 				}]
 			}
 		});
@@ -393,4 +397,5 @@ $(".data_link_copy").click(function(){
 }
 
       </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('panel.layout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\laravel_september\finaldeepreach\resources\views/panel/dashboard.blade.php ENDPATH**/ ?>

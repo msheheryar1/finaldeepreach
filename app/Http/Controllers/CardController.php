@@ -125,6 +125,13 @@ return redirect()->route('card-completed',$new_slug);
            
            $social='pinterest';
         }
+        else {
+              $clicks=$card->other_clicks;
+           $card->other_clicks =$clicks+1;
+           $card->save();
+           
+           $social='other';
+        }
         
         function getUserIP()
 {
@@ -309,6 +316,13 @@ $user_ip = getUserIP();
            $card->save();
            
            $social='pinterest';
+        }
+        else{
+                $clicks=$card->other_clicks;
+           $card->other_clicks =$clicks+1;
+           $card->save();
+           
+           $social='other';
         }
         
         

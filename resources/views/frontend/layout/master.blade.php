@@ -10,6 +10,8 @@
 <meta name="_token" content="{{csrf_token()}}" />
 <link href="{{asset('media/icon.png')}}" rel="icon">
     <!--Google font-->
+
+    
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -84,8 +86,9 @@ po.onload = po.onreadystatechange = function() {var rs = this.readyState; if (rs
 var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);})();
 </script>
 <script id="io.birdseed.script-tag" type="text/javascript" src="https://app.birdseed.io/widget.js"></script><div id="birdseed-widget-container" data-token="afacdbf0765b6827bb9b1339dfbbc9ab"></div>
-{{-- <link href="https://cdn.reboo.io/embed/f165fe34d69ca40b9/reboo.min.css" rel="stylesheet"></link>
-<script src="https://cdn.reboo.io/embed/f165fe34d69ca40b9/reboo.min.js"></script> --}}
+
+<link href="https://cdn.reboo.io/embed/f165fe34d69ca40b9/reboo.min.css" rel="stylesheet"></link>
+<script src="https://cdn.reboo.io/embed/f165fe34d69ca40b9/reboo.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 </head>
@@ -283,7 +286,6 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po
 
 
 <script src="{{asset('dist/growl-notification.min.js')}}"></script>
-
 
 </body>
 

@@ -51,12 +51,12 @@
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "Signup";
+    content: "Login";
     padding-left: 15px;
     background-color: #0078ca; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "Login";
+    content: "Signup";
     padding-right: 15px;
     background-color: #0078ca; color: #FFFFFF;
     text-align: right;
@@ -214,7 +214,7 @@ else{
 					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
-							or sign up using
+							or login using
 						</span>
 					</div>
 
@@ -223,9 +223,9 @@ else{
 							<i class="fa fa-facebook-f" aria-hidden="true"></i>
 						</a>
 
-						<a href="{{route('google_signup')}}" class="login100-form-social-item flex-c-m bg2 m-r-5">
+						{{-- <a href="{{route('google_signup')}}" class="login100-form-social-item flex-c-m bg2 m-r-5">
 							<i class="fa fa-google-plus" aria-hidden="true"></i>
-						</a>
+						</a> --}}
 					</div>
 				</form>
 				
@@ -283,10 +283,10 @@ else{
 						<a href="{{route('facebook_signup')}}" class="login100-form-social-item flex-c-m bg1 m-r-5">
 							<i class="fa fa-facebook-f" aria-hidden="true"></i>
 						</a>
-
+{{-- 
 						<a href="{{route('google_signup')}}" class="login100-form-social-item flex-c-m bg2 m-r-5">
 							<i class="fa fa-google-plus" aria-hidden="true"></i>
-						</a>
+						</a> --}}
 					</div>
 				</form>
 
